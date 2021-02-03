@@ -1,21 +1,32 @@
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule, APP_INITIALIZER } from '@angular/core';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { RouterModule, Routes } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
+import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
 
-const routes: Routes = [];
+
 
 @NgModule({
   imports: [
+    BrowserModule,
     BrowserAnimationsModule,
-    HttpClientModule,
-    RouterModule.forRoot(routes),
+    HttpClientModule,   
+    AppRoutingModule,
+    CoreModule,     //Singleton objects
+    SharedModule  //Shared (multi-instance) objects
   ],
-  exports: [RouterModule],
-  declarations: [AppComponent, HomeComponent],
-  bootstrap: [AppComponent],
+  declarations: [
+    AppComponent,
+    AppRoutingModule.components    
+  ],
+
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
+
+export function jwtTokenGetter(): string {
+  return localStorage.getItem('access_token');
+}
