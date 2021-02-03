@@ -6,20 +6,11 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 
-const appRoutes: Routes = [
-  {
-      path: '',
-      redirectTo: '',
-      pathMatch: 'full',
-      component: HomeComponent
-  }
-]
-
 @NgModule({
   imports: [
     BrowserAnimationsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule,
   ],
   declarations: [AppComponent, HomeComponent],
   bootstrap: [AppComponent],
