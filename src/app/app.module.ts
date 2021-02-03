@@ -13,6 +13,7 @@ const appRoutes: Routes = [
       pathMatch: 'full',
       component: HomeComponent
   }
+]
 
 @NgModule({
   imports: [
