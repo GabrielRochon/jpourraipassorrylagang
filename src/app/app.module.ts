@@ -6,12 +6,15 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 
+const routes: Routes = [];
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
     HttpClientModule,
-    RouterModule,
+    RouterModule.forRoot(routes),
   ],
+  exports: [RouterModule],
   declarations: [AppComponent, HomeComponent],
   bootstrap: [AppComponent],
 })
