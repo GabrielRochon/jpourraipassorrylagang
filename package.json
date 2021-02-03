@@ -8,7 +8,7 @@
   "scripts": {
     "ng": "ng",
     "serve": "node server",
-    "start": "node index.js",
+    "start": "npm i concurrently && concurrently -c \"yellow.bold,green.bold\" -n \"SERVER,BUILD\" \"nodemon server\" \"ng build --watch\"",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
